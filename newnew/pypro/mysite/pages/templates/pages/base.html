@@ -1,0 +1,45 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<header>
+    <h1>Welcome to our Book Shop</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+</body>
+        <main>
+            <section class="featured-books">
+                <h2>Featured Books</h2>
+                <div class="book-container">
+                    {% for book in books %}
+                        <div class="book">
+                            <h2>{{ book.title }}</h2>
+                            <p>Author: {{ book.author.name }}</p>
+                            <p>Genre: {{ book.genre.name }}</p>
+                            <p>Description: {{ book.description }}</p>
+                            <p>Price: ${{ book.price }}</p>
+                            <img src="{{ book.cover_image.url }}" alt="Book Cover" width="200">
+                        </div>
+                    {% endfor %}
+            </section>
+            <section class="book-categories">
+                <h2>Categories</h2>
+                <!-- Add book categories here -->
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Book Shop</p>
+        </footer>
+</body>
+</html>
