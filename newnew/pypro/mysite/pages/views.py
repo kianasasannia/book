@@ -7,7 +7,12 @@ from .forms import OrderForm
 from .models import *
 def index(request):
     books = Book.objects.all()
+<<<<<<< HEAD
     return render(request, 'pages/base.html', {'books': books})
+=======
+    genres = Genre.objects.all()
+    return render(request, 'pages/base.html', {'books': books,'genres': genres})
+>>>>>>> 6c97efb (version1)
 
 # def book_detail(request, book_id):
 #     book = get_object_or_404(Book, pk=book_id)

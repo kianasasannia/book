@@ -25,17 +25,57 @@
                     {% for book in books %}
                         <div class="book">
                             <h2>{{ book.title }}</h2>
+<<<<<<< HEAD
                             <p>Author: {{ book.author.name }}</p>
                             <p>Genre: {{ book.genre.name }}</p>
                             <p>Description: {{ book.description }}</p>
                             <p>Price: ${{ book.price }}</p>
                             <img src="{{ book.cover_image.url }}" alt="Book Cover" width="200">
+=======
+                            <p>نویسنده: {{ book.author.name }}</p>
+                            <p>ژانر: 
+                                {% for genre in book.genre.all %}
+                                    {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            <p>توضیحات: {{ book.description }}</p>
+                            <p>قیمت: {{ book.price }} تومان </p>
+                            <img src="{{ book.cover_image.url }}" alt="Book Cover" width="200"><br><br>
+                            <button class="buy-button">Buy</button>
+>>>>>>> 6c97efb (version1)
                         </div>
                     {% endfor %}
             </section>
             <section class="book-categories">
                 <h2>Categories</h2>
+<<<<<<< HEAD
                 <!-- Add book categories here -->
+=======
+                {% for genre in genres %}
+                <h3>{{ genre.name }}</h3>
+                <div class="book-container">
+                    {% for book in genre.book_set.all %}
+                        <div class="book">
+                            <h4>{{ book.title }}</h4>
+                            <p>Author: {{ book.author.name }}</p>
+                            <p>Genres:
+                                {% for genre in book.genre.all %}
+                                    {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            <p>Description: {{ book.description }}</p>
+                            <p>Price: ${{ book.price }}</p>
+                            <img src="{{ book.cover_image.url }}" alt="Book Cover" width="200">
+                            <button class="buy-button">Buy</button>
+                        </div>
+                    {% endfor %}
+                 </div>
+                    {% if not forloop.last %}
+                <hr class="category-divider">
+            {% endif %}
+               
+                {% endfor %}
+>>>>>>> 6c97efb (version1)
             </section>
         </main>
         <footer>
